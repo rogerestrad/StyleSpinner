@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         txt =(TextView)findViewById(R.id.txt);
         myspinner=(Spinner)findViewById(R.id.MySpinner);
 
-        String opciones [] ={"Negritas","Cursivas"};
+
+        String opciones [] ={"Negritas","Cursivas","Las dos"};
         ArrayAdapter<String> adapter= new ArrayAdapter<String>
                 (this, android.R.layout.simple_spinner_item, opciones);
         myspinner.setAdapter(adapter);
@@ -32,8 +33,11 @@ public class MainActivity extends AppCompatActivity {
                 String opcion=myspinner.getSelectedItem().toString();
                 if (opcion.equals("Negritas"))
                     txt.setTypeface(null, Typeface.BOLD);
-                else if (opcion.equals("Cursivas"))
+                if (opcion.equals("Cursivas"))
                     txt.setTypeface(null,Typeface.ITALIC);
+                if (opcion.equals("Las dos"))
+                    txt.setTypeface(null,Typeface.ITALIC +Typeface.BOLD);
+
             }
 
             @Override
